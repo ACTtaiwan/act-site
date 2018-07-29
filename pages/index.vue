@@ -128,11 +128,14 @@ export default {
   methods: {
     getLatestActionDate (actions) {
       let latestActionTime = 0
-      actions.forEach(action => {
-        if (action.datetime > latestActionTime) {
-          latestActionTime = action.datetime
-        }
-      })
+      console.log('EEEEE', actions)
+      if (actions && actions.length > 0) {
+        actions.forEach(action => {
+          if (action.datetime > latestActionTime) {
+            latestActionTime = action.datetime
+          }
+        })
+      }
       return parseInt(latestActionTime)
     },
     fetchBills (ids) {
