@@ -8,11 +8,13 @@ query BillDetailPageQuery($lang: String, $ids: [ID]) {
     introducedDate
     articles {
       id
-      publishedAt
-      imageUrl
-      source
-      title
+      headline
+      subhead
+      author
+      intro
       url
+      imageUrl
+      date
     }
     cosponsors {
       role {
