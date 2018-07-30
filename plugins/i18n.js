@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 // import our own locale file
-import zhTW from '~/locales/zh-tw.json'
+import enUS from '~/locales/en-us.json'
 // import locale file from components
-import zhTwComponents from '~/components/zh-tw'
+import enUsComponents from '~/components/en-us'
 // import i18n texts for iView
-import zhTwIview from 'iview/dist/locale/zh-TW'
+import enUSIview from 'iview/dist/locale/en-US'
 
 Vue.use(VueI18n)
 
@@ -14,12 +14,12 @@ export default ({ app, isClient, store }) => {
   // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = new VueI18n({
     locale: store.state.locale,
-    fallbackLocale: 'zh-tw',
+    fallbackLocale: 'en-us',
     messages: {
-      'zh-tw': {
-        ...zhTW,
-        ...zhTwComponents,
-        ...zhTwIview
+      'en-us': {
+        ...enUS,
+        ...enUsComponents,
+        ...enUSIview
       }
     }
   })

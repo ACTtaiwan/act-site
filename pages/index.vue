@@ -102,7 +102,7 @@ export default {
   },
   head () {
     return {
-      title: this.$t('site.title.mainTitle'),
+      title: this.$t('site.title'),
       meta: [
         { hid: 'description', name: 'description', content: this.$t('landingPage.description') },
         { property: 'og:url', content: appConfig.site.url },
@@ -128,7 +128,6 @@ export default {
   methods: {
     getLatestActionDate (actions) {
       let latestActionTime = 0
-      console.log('EEEEE', actions)
       if (actions && actions.length > 0) {
         actions.forEach(action => {
           if (action.datetime > latestActionTime) {
