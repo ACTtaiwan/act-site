@@ -63,6 +63,11 @@
       </div>
     </section>
 
+    <!-- Subscription -->
+    <section class="section">
+      <Subscription/>
+    </section>
+
   </div>
 </template>
 
@@ -77,6 +82,7 @@ import people from '~/assets/img/banner-people.png'
 import Spinner from '~/components/Spinner'
 import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
+import Subscription from '~/components/Subscription'
 // queriess
 import PrefetchBillIdsQuery from '~/apollo/queries/HomePage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/HomePage/Bills'
@@ -86,7 +92,8 @@ export default {
   components: {
     BillCard,
     ArticleCard,
-    Spinner
+    Spinner,
+    Subscription
   },
   data () {
     return {
@@ -149,6 +156,7 @@ export default {
           const billsMap = _.keyBy(data.bills, 'id')
           this.bills = this.billIds
             .map(id => billsMap[id])
+            .filter(x => !!x.actionsAll)
             .sort(
               (a, b) =>
                 this.getLatestActionDate(b.actionsAll) - this.getLatestActionDate(a.actionsAll)
@@ -186,11 +194,11 @@ export default {
       fetchPolicy: 'cache-and-network',
       variables () {
         return {
-          lang: this.locale
+          list: 'act'
         }
       },
       update (data) {
-        return _.orderBy(data.articles, article => parseInt(article.publishedAt), ['desc'])
+        return _.orderBy(data.articles, article => parseInt(article.date), ['desc'])
       },
       result (result) {
         if (!result.loading) {
