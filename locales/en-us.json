@@ -9,7 +9,17 @@
       "insightsItemText": "Insights",
       "articlesItemText": "Articles",
       "aboutItemText": "About"
-    }
+    },
+    "aboutItemDropdown": [
+      {
+        "menuGroupTitle": "ACT",
+        "menuItemTitles": ["About", "Join us", "Support us"]
+      },
+      {
+        "menuGroupTitle": "Data",
+        "menuItemTitles": ["Sources", "Methodology"]
+      }
+    ]
   },
   "landingPage": {
     "title": "American Citizens for Taiwan",
@@ -54,6 +64,11 @@
     "bannerTitle": "Insights data"
   },
   "aritclesPage": {
-    "title": "Articles"
+    "title": "Articles",
+    "bannerTitle": "Articles"
+  },
+  "aboutPage": {
+    "title": "About",
+    "bannerTitle": "American Citizens for Taiwan"
   }
 }

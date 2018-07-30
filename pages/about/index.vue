@@ -4,7 +4,7 @@
     <section :style="bannerStyle" class="banner">
       <div class="banner-wrapper">
         <div class="text-container">
-          <h1 class="banner-title">{{ this.$t('billsPage.bannerTitle') }}</h1>
+          <h1 class="banner-title">{{ this.$t('aboutPage.bannerTitle') }}</h1>
         </div>
         <div class="image-container" >
           <img :src="bannerBills" class="front-img">
