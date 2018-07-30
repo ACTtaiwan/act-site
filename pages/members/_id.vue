@@ -93,7 +93,7 @@ export default {
       return this.members ? this.members[0] : {}
     },
     memberTitle () {
-      const lang = 'zh'
+      const lang = 'en'
 
       if (!this.states || !this.members) return ''
       if (this.members[0].district) {

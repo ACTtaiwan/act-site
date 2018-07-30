@@ -1,0 +1,59 @@
+{
+  "site": {
+    "title": "American Citizens for Taiwan",
+    "logoTitle": "ACT",
+    "description": "Taiwan affiars in US Congress",
+    "menu": {
+      "billItemText": "Bills",
+      "congressMemberItemText": "Members",
+      "insightsItemText": "Insights",
+      "articlesItemText": "Articles",
+      "aboutItemText": "About"
+    }
+  },
+  "landingPage": {
+    "title": "American Citizens for Taiwan",
+    "description": "你知道美國國會也有台灣相關法案嗎？你知道哪些國會有哪些挺台議員嗎？快來了解美國國會台灣大小事 😎",
+    "bannerTitle": "American Citizens for Taiwan",
+    "newsTitle": "NDAA 2019 Strengthens Taiwan Security",
+    "newsContent":
+      "NDAA 2019 recommends closer U.S. military ties with Taiwan and takes a much harsher stance on China, a strategic competitor it now seeks to de-invite from the RIMPAC exercises."
+  },
+  "billsPage": {
+    "title": "Bills",
+    "description": "本屆國會有哪些台灣相關法案？來一探究竟吧！ 🔍",
+    "bannerTitle": "Taiwan related bills",
+    "table": {
+      "congressColLabel": "國會屆數",
+      "billCodeColLabel": "法案編號",
+      "titleColLabel": "標題",
+      "versionsColLabel": "版本",
+      "versionsPopTitleUnit": "個版本",
+      "sponsorColLabel": "提案者",
+      "chamberColLabel": "議院",
+      "partyColLabel": "政黨",
+      "lastUpdatedColLabel": "更新時間"
+    }
+  },
+  "membersPage": {
+    "title": "Members",
+    "description": "你選區的議員關注台灣法案嗎？快來看看！ 🤓",
+    "bannerTitle": "Congressional members",
+    "table": {
+      "congressColLabel": "Congress",
+      "titleColLabel": "標題 (參議員 或 眾議員)",
+      "nameColLabel": "名稱",
+      "stateColLabel": "州",
+      "districtColLabel": "區",
+      "partyColLabel": "政黨",
+      "lastUpdatedColLabel": "更新時間"
+    }
+  },
+  "insightsPage": {
+    "title": "Insights",
+    "bannerTitle": "Insights data"
+  },
+  "aritclesPage": {
+    "title": "Articles"
+  }
+}
