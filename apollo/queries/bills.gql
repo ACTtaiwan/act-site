@@ -21,10 +21,6 @@ query BillsQuery($lang: String, $ids: [ID]) {
       }
       dateCosponsored
     }
-    categories {
-      id
-      name
-    }
     billType {
       id
       chamber

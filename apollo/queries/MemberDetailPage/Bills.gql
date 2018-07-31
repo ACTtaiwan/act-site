@@ -6,11 +6,6 @@ query BillsQuery($lang: String, $ids: [ID]) {
     billNumber
     congress
     introducedDate
-    categories {
-      id
-      name
-      code
-    }
     actions {
       id
       datetime
