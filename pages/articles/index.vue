@@ -31,12 +31,40 @@
         <h1 class="section-title">Articles</h1>
         <div class="info-cards-section-wrapper">
           <Spinner v-if="isArticleUpdateLoading" />
-          <Row :gutter="30">
+          <Row :gutter="30" type="flex">
             <i-col
-              v-for="article in articles"
-              :key="article.id"
               :span="isPhone ? 24 : isTablet ? 12 : 8">
               <ArticleCard
+                v-for="article in articlesOfCol(0)"
+                :key="article.id"
+                :article="article"
+                showSubtitle
+                showAuthor
+                showDate
+                showIntro
+                imgNoMargin
+                class="article-card" />
+            </i-col>
+            <i-col
+              v-if="!isPhone"
+              :span="isTablet ? 12 : 8">
+              <ArticleCard
+                v-for="article in articlesOfCol(1)"
+                :key="article.id"
+                :article="article"
+                showSubtitle
+                showAuthor
+                showDate
+                showIntro
+                imgNoMargin
+                class="article-card" />
+            </i-col>
+            <i-col
+              v-if="!isPhone && !isTablet"
+              :span="8">
+              <ArticleCard
+                v-for="article in articlesOfCol(2)"
+                :key="article.id"
                 :article="article"
                 showSubtitle
                 showAuthor
@@ -111,6 +139,17 @@ export default {
         if (!result.loading) {
           this.isArticleUpdateLoading = false
         }
+      }
+    }
+  },
+  methods: {
+    articlesOfCol (col) {
+      if (this.isPhone) {
+        return this.articles
+      } else if (this.isTablet) {
+        return _.filter(this.articles, (x, i) => (i % 2) == col)
+      } else {
+        return _.filter(this.articles, (x, i) => (i % 3) == col)
       }
     }
   }
