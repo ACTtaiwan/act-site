@@ -196,7 +196,7 @@ export default {
       fetchPolicy: 'cache-and-network',
       variables () {
         return {
-          list: 'act'
+          list: appConfig.articleList
         }
       },
       update (data) {
