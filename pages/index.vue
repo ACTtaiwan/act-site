@@ -56,6 +56,7 @@
               :span="isPhone ? 24 : isTablet ? 12 : 8">
               <ArticleCard
                 :article="article"
+                imgNoMargin
                 class="article-card" />
             </i-col>
           </Row>
