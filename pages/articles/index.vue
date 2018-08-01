@@ -38,6 +38,11 @@
               :span="isPhone ? 24 : isTablet ? 12 : 8">
               <ArticleCard
                 :article="article"
+                showSubtitle
+                showAuthor
+                showDate
+                showIntro
+                imgNoMargin
                 class="article-card" />
             </i-col>
           </Row>
@@ -85,7 +90,7 @@ export default {
       return this.$store.getters.isTablet
     },
     bannerArticles () {
-      return this.articles.slice(0, 3)
+      return this.articles.slice(0, 5)
     }
   },
   apollo: {
