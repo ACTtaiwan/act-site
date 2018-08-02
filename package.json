@@ -34,7 +34,7 @@
     "graphql": "^0.12.3",
     "graphql-tag": "^2.7.3",
     "hchs-vue-charts": "^1.2.8",
-    "iview": "^2.14.3",
+    "iview": "^3.0.0",
     "moment": "^2.20.1",
     "nuxt": "^1.4.0",
     "serverless": "^1.29.2",
