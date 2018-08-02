@@ -214,7 +214,21 @@ export default {
 }
 
 .article-banner-card {
-  height: 20vh;
+  height: 30vh;
+}
+
+// tablet
+@media screen and (max-width: $mediumDeviceWidth - 1) {
+  .article-banner-card {
+    height: 25vh;
+  }
+}
+
+// phone
+@media screen and (max-width: $smallDeviceWidth - 1) {
+  .article-banner-card {
+    height: 20vh;
+  }
 }
 
 </style>
