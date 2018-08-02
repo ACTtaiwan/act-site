@@ -1,6 +1,6 @@
 {
-  "name": "taiwanwatch-main-site",
-  "description": "Taiwan Watch project main site",
+  "name": "act-main-site",
+  "description": "ACT main site",
   "version": "0.0.1",
   "author": "dieface <fockerlee@gmail.com>",
   "private": true,
@@ -9,16 +9,16 @@
     "build": "nuxt build",
     "build-analyze": "nuxt build --analyze",
     "start": "nuxt start",
-    "deploy-dev": "nuxt build && serverless deploy --stage dev",
-    "deploy-dev-fast": "nuxt build && serverless deploy --stage dev --function main",
-    "deploy-prod": "nuxt build && serverless deploy --stage prod",
+    "deploy-dev": "nuxt build && node_modules/serverless/bin/serverless deploy --stage dev",
+    "deploy-dev-fast": "nuxt build && node_modules/serverless/bin/serverless deploy --stage dev --function main",
+    "deploy-prod": "nuxt build && node_modules/serverless/bin/serverless deploy --stage prod",
     "dev-spa": "nuxt dev --spa",
     "build-spa": "nuxt build --spa",
     "start-spa": "nuxt start --spa",
     "generate": "nuxt generate"
   },
   "now": {
-    "alias": "www.uswatch.tw"
+    "alias": "www.acttaiwan.org"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^3.0.6",
@@ -53,6 +53,7 @@
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "node-sass": "^4.9.0",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "serverless": "^1.29.2"
   }
 }
