@@ -19,6 +19,7 @@
               <BillVersionsCard
                 v-if="bill.versions.length > 0"
                 :bill="bill" />
+              <POPVox :bill="bill"/>
             </i-col>
             <i-col
               :span="isTablet || isPhone ? 24 : 6"
@@ -55,6 +56,7 @@ import BillActionsCard from '~/components/BillActionsCard'
 import BillVersionsCard from '~/components/BillDetailPage/BillVersionsCard'
 
 import ArticleCard from '~/components/HomePage/ArticleCard'
+import POPVox from '~/components/POPVox'
 
 export default {
   components: {
@@ -63,7 +65,8 @@ export default {
     BillSponsorsMapCard,
     BillActionsCard,
     BillVersionsCard,
-    ArticleCard
+    ArticleCard,
+    POPVox
   },
   data () {
     return {}
