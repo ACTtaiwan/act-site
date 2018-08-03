@@ -37,7 +37,7 @@
     </section>
 
     <!-- Join us -->
-    <section id="join" class="section">
+    <!-- <section id="join" class="section">
       <div class="section-wrapper">
         <h1 class="section-title">Join us</h1>
         <Card :bordered="false" class="section-card">
@@ -66,8 +66,18 @@
           <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
         </Card>
       </div>
-    </section>
+    </section> -->
 
+    <!-- Contact us -->
+    <section id="contact" class="section">
+      <div class="section-wrapper">
+        <h1 class="section-title">Contact us</h1>
+        <Card :bordered="false" class="section-card">
+          <p slot="title">No border title</p>
+        </Card>
+      </div>
+    </section>
+    
     <!-- Support us -->
     <section id="support" class="section">
       <div class="section-wrapper">
