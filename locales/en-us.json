@@ -13,7 +13,7 @@
     "aboutItemDropdown": [
       {
         "menuGroupTitle": "ACT",
-        "menuItemTitles": ["About", "Join us", "Support us"]
+        "menuItemTitles": ["About", "Join us", "Contact us", "Support us"]
       },
       {
         "menuGroupTitle": "Data",
