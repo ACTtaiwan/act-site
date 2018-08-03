@@ -73,7 +73,38 @@
       <div class="section-wrapper">
         <h1 class="section-title">Contact us</h1>
         <Card :bordered="false" class="section-card">
-          <p slot="title">No border title</p>
+          <h2>Like us on Facebook</h2>
+          <iframe 
+            class="fb-iframe"
+            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
+            scrolling="no" 
+            height="28"
+            frameborder="0" 
+            allowTransparency="true" 
+            allow="encrypted-media"/>
+          
+          <h2>Follow us on Twitter</h2>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"/>
+          <div class="tw-follow-btn">
+            <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @ACT</a>
+          </div>
+          <div class="tw-timeline-wrapper">
+            <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-timeline" data-height="800" data-chrome="nofooter noheader noborders transparent">Tweets by @ACT</a>
+          </div>
+
+          <h2>Share your thoughts</h2>
+          <div class="share-btns">
+            <div class="tw-btn">
+              <a href="https://twitter.com/intent/tweet?screen_name=ACTtaiwan&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Hi! I think that..." data-show-count="false">Tweet to @ACTtaiwan</a>
+            </div>
+            <div>
+              <Tooltip content="Email us">
+                <a href="mailto:feedback@acttaiwan.org">
+                  <Button class="email-btn" type="primary" shape="circle" icon="md-mail"/>
+                </a>
+              </Tooltip>
+            </div>
+          </div>
         </Card>
       </div>
     </section>
@@ -94,8 +125,11 @@
       <div class="section-wrapper">
         <h1 class="section-title">Data sources</h1>
         <Card :bordered="false" class="section-card">
-          <p slot="title">No border title</p>
-          <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
+          <ul class="data-list">
+            <li><a href="https://www.govtrack.us/" target="_blank">GovTrack</a></li>
+            <li><a href="http://congress.gov/" target="_blank">Congress.gov</a></li>
+            <li><a href="https://www.propublica.org/" target="_blank">ProPublica</a></li>
+          </ul>
         </Card>
       </div>
     </section>
@@ -208,5 +242,56 @@ export default {
     margin-bottom: 40px;
   }
 }
+
+.fb-iframe {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.tw-follow-btn {
+  margin-top: 10px;
+}
+
+.tw-timeline-wrapper {
+  width: 50%;
+  height: 800px;
+  border: 1px solid rgba(15,70,100,.12);
+  margin-bottom: 20px;
+}
+
+.share-btns {
+  display: flex;
+  margin-top: 10px;
+  flex-flow: row wrap;
+  align-items: center;
+
+  .tw-btn {
+    height: 28px;
+  }
+
+  .email-btn {
+    margin-left: 10px;
+  }
+}
+
+.data-list {
+  margin-left: 16px;
+}
+
+
+// tablet
+@media screen and (max-width: $mediumDeviceWidth - 1) {
+  .tw-timeline-wrapper {
+    width: 100%;
+  }
+}
+
+// phone
+@media screen and (max-width: $smallDeviceWidth - 1) {
+  .section-card {
+    margin: auto -15px;
+  }
+}
+
 </style>  
 
