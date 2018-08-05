@@ -5,7 +5,7 @@
   "author": "dieface <fockerlee@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "HOST=0.0.0.0 nuxt dev",
     "build": "nuxt build",
     "build-analyze": "nuxt build --analyze",
     "start": "nuxt start",
