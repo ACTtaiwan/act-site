@@ -69,6 +69,11 @@
       <Subscription/>
     </section>
 
+    <!-- Donate us -->
+    <div class="donate-btn">
+      <DonateButton fontSize="1.5em" />
+    </div>
+
   </div>
 </template>
 
@@ -84,6 +89,7 @@ import Spinner from '~/components/Spinner'
 import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
+import DonateButton from '~/components/DonateButton'
 // queriess
 import PrefetchBillIdsQuery from '~/apollo/queries/HomePage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/HomePage/Bills'
@@ -94,7 +100,8 @@ export default {
     BillCard,
     ArticleCard,
     Spinner,
-    Subscription
+    Subscription,
+    DonateButton
   },
   data () {
     return {
@@ -356,4 +363,11 @@ export default {
     margin-bottom: 40px;
   }
 }
+
+.donate-btn {
+  margin: 46px auto;
+  width: 200px;
+  height: 50px;
+}
+
 </style>

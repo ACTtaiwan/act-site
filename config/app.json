@@ -9,6 +9,7 @@
     "url": "https://graphql.uswatch.tw/dev/api"
   },
   "articleList": "act",
+  "donorboxCampaign": "support-american-citizens-for-taiwan-foundation",
   "binaryMimeTypes": [
     "application/javascript",
     "application/json",
