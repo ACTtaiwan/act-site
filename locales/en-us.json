@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "American Citizens for Taiwan",
-    "logoTitle": "ACT",
+    "logoTitle": "American Citizens for Taiwan",
     "description": "Taiwan affiars in US Congress",
     "menu": {
       "billItemText": "Bills",
@@ -26,8 +26,17 @@
     "description": "你知道美國國會也有台灣相關法案嗎？你知道哪些國會有哪些挺台議員嗎？快來了解美國國會台灣大小事 😎",
     "bannerTitle": "American Citizens for Taiwan",
     "newsTitle": "NDAA 2019 Strengthens Taiwan Security",
-    "newsContent":
-      "NDAA 2019 recommends closer U.S. military ties with Taiwan and takes a much harsher stance on China, a strategic competitor it now seeks to de-invite from the RIMPAC exercises."
+    "newsContent": "NDAA 2019 recommends closer U.S. military ties with Taiwan and takes a much harsher stance on China, a strategic competitor it now seeks to de-invite from the RIMPAC exercises.",
+    "introSection": {
+      "title": "Our Purpose",
+      "text": "Educating Americans on the importance of Taiwan to the U.S. & working to strengthen the U.S.-Taiwan relationship. With Your Support, we make sure Washington stands up for Taiwan's freedom and democracy."
+    },
+    "billSection": {
+      "title": "Bill updates"
+    },
+    "articleSection": {
+      "title": "Articles"
+    }
   },
   "billsPage": {
     "title": "Bills",

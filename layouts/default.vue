@@ -7,7 +7,7 @@
       class="main-content">
       <nuxt nuxtChildKey="none" />
     </main>
-    <AppFooter/>
+    <AppFooter :showPoweredby="false" :copyright="`Copyright © American Citizens for Taiwan 2018`"/>
   </div>
 </template>
 

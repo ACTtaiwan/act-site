@@ -85,6 +85,15 @@ $smallDeviceWidth: 576px;
   }
 }
 
+@mixin button-color {
+  background: $twIndigo;
+  color: $twWhite;
+
+  &:hover {
+    background: darken($twIndigo, 10%);
+    transition: background 250ms;
+  }
+}
 
 // desktop
 @media screen and (min-width: $mediumDeviceWidth) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="landing">
+  <div :class="{ 'phone': isPhone, 'tablet': isTablet }" class="landing">
 
     <!-- Banner -->
     <section
@@ -23,22 +23,16 @@
       </div>
     </section>
 
-    <!-- Bills Updates -->
-    <section class="bills section">
+    <!-- Intro -->
+    <section class="intro section">
       <div class="section-wrapper">
-        <h1 class="section-title">Bill updates</h1>
+        <h1 class="section-title">{{ $t('landingPage.introSection.title') }}</h1>
         <div class="info-cards-section-wrapper">
-          <Spinner v-if="isBillUpdateLoading" />
-          <Row :gutter="30">
-            <i-col
-              v-for="bill in bills"
-              :key="bill.id"
-              :span="isPhone ? 24 : isTablet ? 12 : 8">
-              <BillCard
-                :bill="bill"
-                class="bill-card" />
-            </i-col>
-          </Row>
+          <h3 class="intro-text">{{ $t('landingPage.introSection.text') }}</h3>
+        </div>
+        <!-- Donate us -->
+        <div class="donate-btn">
+          <DonateButton fontSize="1.5em" />
         </div>
       </div>
     </section>
@@ -46,7 +40,7 @@
     <!-- Articles -->
     <section class="articles section">
       <div class="section-wrapper">
-        <h1 class="section-title">Articles</h1>
+        <h1 class="section-title">{{ $t('landingPage.articleSection.title') }}</h1>
         <div class="info-cards-section-wrapper">
           <Spinner v-if="isArticleUpdateLoading" />
           <Row :gutter="30">
@@ -61,19 +55,52 @@
             </i-col>
           </Row>
         </div>
+        <router-link :to="`/articles`">
+          <div class="more-btn">
+            <TwButton label="More Articles" fontSize="1.5em" width="100%" height="100%"/>
+          </div>
+        </router-link>
+      </div>
+    </section>
+
+    <!-- Bills Updates -->
+    <section class="bills section">
+      <div class="section-wrapper">
+        <div class="section-title-wrap">
+          <h1 class="section-title">{{ $t('landingPage.billSection.title') }}</h1>
+          <Tooltip placement="top" maxWidth="300">
+            <TwButton class="help-btn" type="icon" icon="md-help"/>
+            <div slot="content">
+              <p>Write your member of Congress to Support Taiwan related legislation; <i>you can make a difference.</i></p>
+            </div>
+          </Tooltip>
+        </div>
+        <div class="info-cards-section-wrapper">
+          <Spinner v-if="isBillUpdateLoading" />
+          <Row :gutter="30">
+            <i-col
+              v-for="bill in bills"
+              :key="bill.id"
+              :span="isPhone ? 24 : isTablet ? 12 : 8">
+              <BillCard
+                :bill="bill"
+                showSupportBtn="true"
+                class="bill-card" />
+            </i-col>
+          </Row>
+        </div>
+        <router-link :to="`/bills`">
+          <div class="more-btn">
+            <TwButton label="More Bills" fontSize="1.5em" width="100%" height="100%"/>
+          </div>
+        </router-link>
       </div>
     </section>
 
     <!-- Subscription -->
-    <section class="section">
+    <section class="subscription section">
       <Subscription/>
     </section>
-
-    <!-- Donate us -->
-    <div class="donate-btn">
-      <DonateButton fontSize="1.5em" />
-    </div>
-
   </div>
 </template>
 
@@ -90,6 +117,7 @@ import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
 import DonateButton from '~/components/DonateButton'
+import TwButton from '~/components/TwButton'
 // queriess
 import PrefetchBillIdsQuery from '~/apollo/queries/HomePage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/HomePage/Bills'
@@ -101,11 +129,13 @@ export default {
     ArticleCard,
     Spinner,
     Subscription,
-    DonateButton
+    DonateButton,
+    TwButton
   },
   data () {
     return {
-      numberOfBillCards: 6,
+      numberOfBillCards: 3,
+      numberOfArticleCards: 3,
       isBillUpdateLoading: true,
       isArticleUpdateLoading: true,
       bills: [],
@@ -209,6 +239,7 @@ export default {
       },
       update (data) {
         return _.orderBy(data.articles, article => parseInt(article.date), ['desc'])
+          .slice(0, this.numberOfArticleCards)
       },
       result (result) {
         if (!result.loading) {
@@ -346,7 +377,7 @@ export default {
 }
 
 .section {
-  padding: 40px 0 0 0;
+  padding: 40px 0;
 
   .section-wrapper {
     @extend .pageWrapper-large;
@@ -359,13 +390,55 @@ export default {
     }
   }
 
-  &:last-child {
-    margin-bottom: 40px;
+  &:nth-child(2n) {
+    background: $twWhite;
+  }
+
+  &.subscription {
+    padding: 0;
+  }
+
+  &.bills {
+    .section-title-wrap {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title {
+      display: inline;
+      margin: 0;
+    }
+
+    .help-btn {
+      margin-left: 10px;
+    }
+  }
+
+  &.intro .section-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+
+    .intro-text {
+      max-width: 50%;
+      margin: 0 auto;
+
+      .phone & {
+        max-width: 100%;
+      }
+
+      .tablet & {
+        max-width: 80%;
+      }
+    }
   }
 }
 
-.donate-btn {
-  margin: 46px auto;
+.donate-btn,
+.more-btn {
+  margin: 20px auto;
   width: 200px;
   height: 50px;
 }
