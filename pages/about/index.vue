@@ -72,40 +72,119 @@
     <section id="contact" class="section">
       <div class="section-wrapper">
         <h1 class="section-title">Contact us</h1>
-        <Card :bordered="false" class="section-card">
-          <h2>Like us on Facebook</h2>
-          <iframe 
-            class="fb-iframe"
-            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
-            scrolling="no" 
-            height="28"
-            frameborder="0" 
-            allowTransparency="true" 
-            allow="encrypted-media"/>
-          
-          <h2>Follow us on Twitter</h2>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"/>
-          <div class="tw-follow-btn">
-            <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @ACT</a>
-          </div>
-          <div class="tw-timeline-wrapper">
-            <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-timeline" data-height="800" data-chrome="nofooter noheader noborders transparent">Tweets by @ACT</a>
-          </div>
+        <Row :gutter="30" type="flex">
+          <i-col span="24">
+            <Card :bordered="false" class="section-card">
+              <p slot="title">
+                Share your thoughts
+              </p>
+              <div class="share-btns">
+                <div class="tw-btn">
+                  <a href="https://twitter.com/intent/tweet?screen_name=ACTtaiwan&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Hi! I think that..." data-show-count="false">Tweet to @ACTtaiwan</a>
+                </div>
+                <div>
+                  <Tooltip content="Email us">
+                    <a href="mailto:feedback@acttaiwan.org">
+                      <Button class="email-btn" type="primary" shape="circle" icon="md-mail"/>
+                    </a>
+                  </Tooltip>
+                </div>
+              </div>
+            </Card>
+          </i-col>
+        </Row>
 
-          <h2>Share your thoughts</h2>
-          <div class="share-btns">
-            <div class="tw-btn">
-              <a href="https://twitter.com/intent/tweet?screen_name=ACTtaiwan&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-text="Hi! I think that..." data-show-count="false">Tweet to @ACTtaiwan</a>
+        <br>
+
+        <div class="social-cards">
+          <Card :bordered="false" :style="{ 'width': fbCardWidth }" class="fb-card section-card">
+            <div slot="title" class="slot">
+              <p>Facebook</p>
+
+              <!-- FB share button -->
+              <iframe
+                class="fb-share-btn"
+                src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
+                scrolling="no" 
+                height="28"
+                width="152"
+                frameborder="0" 
+                allowTransparency="true" 
+                allow="encrypted-media"/>
             </div>
-            <div>
-              <Tooltip content="Email us">
-                <a href="mailto:feedback@acttaiwan.org">
-                  <Button class="email-btn" type="primary" shape="circle" icon="md-mail"/>
-                </a>
-              </Tooltip>
+            
+            <!-- FB timeline -->
+            <div 
+              :class="{ 'hide': shouldBreakWidth }"
+              class="fb-page" 
+              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/" 
+              data-tabs="timeline" 
+              data-small-header="true" 
+              data-adapt-container-width="false" 
+              data-hide-cover="true" 
+              data-show-facepile="false"
+              data-width="500"
+              data-height="800">
+              <blockquote cite="https://www.facebook.com/AmericanCitizensforTaiwan/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/AmericanCitizensforTaiwan/">American Citizens for Taiwan</a>
+              </blockquote>
             </div>
-          </div>
-        </Card>
+
+            <div 
+              :class="{ 'hide': !shouldBreakWidth }"
+              class="fb-page" 
+              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/" 
+              data-tabs="timeline" 
+              data-small-header="true" 
+              data-adapt-container-width="false" 
+              data-hide-cover="true" 
+              data-show-facepile="false"
+              data-width="300"
+              data-height="800">
+              <blockquote cite="https://www.facebook.com/AmericanCitizensforTaiwan/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/AmericanCitizensforTaiwan/">American Citizens for Taiwan</a>
+              </blockquote>
+            </div> 
+
+            <!-- FB share button -->
+            <iframe
+              v-if="shouldHideTimeline"
+              src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
+              scrolling="no" 
+              height="28"
+              width="152"
+              frameborder="0" 
+              allowTransparency="true" 
+              allow="encrypted-media"/>          
+          </Card>
+
+          <Card :bordered="false" class="twitter-card section-card">
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"/>
+            <div slot="title" class="slot">
+              <p>Twitter</p>
+              <!-- Twitter follow button -->
+              <div slot="extra" class="twitter-follow-btn">
+                <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @ACT</a>
+              </div>
+            </div>
+
+            <!-- Twitter timeline -->
+            <div class="tw-timeline-wrapper">
+              <a 
+                href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" 
+                class="twitter-timeline" 
+                data-height="800" 
+                data-chrome="nofooter noheader noborders transparent">
+                Tweets by @ACT
+              </a>
+            </div>
+
+            <!-- Twitter follow button -->
+            <div v-show="shouldHideTimeline">
+              <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @ACT</a>
+            </div>            
+          </Card>
+        </div>    
       </div>
     </section>
     
@@ -173,7 +252,47 @@ export default {
       ship,
       DonorboxHelper
     }
-  }
+  },
+  computed: {
+    shouldBreakWidth () {
+      return this.$store.getters.clientWidth < 1120
+    },
+    shouldHideTimeline () {
+      return this.$store.getters.clientWidth <= 780
+    },
+    fbCardWidth () {
+      if (this.shouldBreakWidth) {
+        return this.shouldHideTimeline ? 'auto' : '332px'
+      } else {
+        return '532px'
+      }
+    }
+  },
+  mounted () {
+    let code = `
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=126739610711965&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    `
+    if (!window.document.getElementById('fb-root')) {
+      let s = document.createElement('script')
+      s.type = 'text/javascript'
+      try {
+        s.appendChild(document.createTextNode(code))
+      } catch (e) {
+        s.text = code
+      }
+      document.body.insertBefore(s, document.body.firstChild)
+
+      let div = document.createElement('div')
+      div.id = 'fb-root'
+      document.body.insertBefore(div, document.body.firstChild)
+    }
+  },
 }
 </script>
 
@@ -255,17 +374,8 @@ export default {
   }
 }
 
-.fb-iframe {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.tw-follow-btn {
-  margin-top: 10px;
-}
-
 .tw-timeline-wrapper {
-  width: 50%;
+  width: 100%;
   height: 800px;
   border: 1px solid rgba(15,70,100,.12);
   margin-bottom: 20px;
@@ -273,7 +383,6 @@ export default {
 
 .share-btns {
   display: flex;
-  margin-top: 10px;
   flex-flow: row wrap;
   align-items: center;
 
@@ -290,11 +399,59 @@ export default {
   margin-left: 16px;
 }
 
+.social-cards {
+  display: flex;
 
-// tablet
-@media screen and (max-width: $mediumDeviceWidth - 1) {
-  .tw-timeline-wrapper {
-    width: 100%;
+  .slot {
+    display: flex;
+    align-items: center;
+  }
+
+  .twitter-card {
+    margin-left: 30px;
+    flex-grow: 1;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .slot {
+    flex-wrap: wrap;
+  }
+
+  .twitter-follow-btn,
+  .fb-share-btn {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .social-cards {
+    flex-direction: column;
+
+    .twitter-follow-btn,
+    .fb-share-btn {
+      display: none;
+    }
+
+    .tw-timeline-wrapper,
+    .fb-page {
+      display: none;
+    }
+    
+    .twitter-card {
+      margin-left: 0;
+      margin-top: 20px;
+      flex-grow: 0;
+      width: 100%;
+    }
+
+    .fb-card {
+      width: 100%;
+    }    
   }
 }
 
@@ -302,6 +459,13 @@ export default {
 @media screen and (max-width: $smallDeviceWidth - 1) {
   .section-card {
     margin: auto -15px;
+  }
+
+  .social-cards {
+    .twitter-card {
+      margin-left: -15px;
+      width: auto;
+    } 
   }
 }
 
