@@ -10,5 +10,9 @@ export default {
   isPhone (state) {
     // (state, getters)
     return !(state.clientWidth > 550)
+  },
+  clientWidth (state) {
+    // (state, getters)
+    return state.clientWidth
   }
 }
