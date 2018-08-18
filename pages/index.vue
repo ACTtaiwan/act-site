@@ -40,7 +40,15 @@
     <!-- Articles -->
     <section class="articles section">
       <div class="section-wrapper">
-        <h1 class="section-title">{{ $t('landingPage.articleSection.title') }}</h1>
+        <div class="section-title-wrap">
+          <h1 class="section-title">{{ $t('landingPage.articleSection.title') }}</h1>
+          <Tooltip placement="top" maxWidth="300">
+            <TwButton class="help-btn" type="icon" icon="md-help"/>
+            <div slot="content">
+              <p>ACT hosts Article and News postings on our Medium.com publication; click the Article card to read the full article on Medium.com. Don't forget to clap to show your support!</p>
+            </div>
+          </Tooltip>
+        </div>
         <div class="info-cards-section-wrapper">
           <Spinner v-if="isArticleUpdateLoading" />
           <Row :gutter="30">
