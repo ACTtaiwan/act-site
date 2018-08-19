@@ -2,7 +2,7 @@
   "site": {
     "title": "American Citizens for Taiwan",
     "logoTitle": "American Citizens for Taiwan",
-    "description": "Taiwan affiars in US Congress",
+    "description": "Educating Americans on the importance of Taiwan to the U.S. & working to strengthen the U.S.-Taiwan relationship.",
     "menu": {
       "billItemText": "Bills",
       "congressMemberItemText": "Members",
@@ -23,19 +23,19 @@
   },
   "landingPage": {
     "title": "American Citizens for Taiwan",
-    "description": "你知道美國國會也有台灣相關法案嗎？你知道哪些國會有哪些挺台議員嗎？快來了解美國國會台灣大小事 😎",
+    "description": "Educating Americans on the importance of Taiwan to the U.S. & working to strengthen the U.S.-Taiwan relationship.",
     "bannerTitle": "American Citizens for Taiwan",
-    "newsTitle": "NDAA 2019 Strengthens Taiwan Security",
-    "newsContent": "NDAA 2019 recommends closer U.S. military ties with Taiwan and takes a much harsher stance on China, a strategic competitor it now seeks to de-invite from the RIMPAC exercises.",
+    "newsTitle": "Keeping U.S. Taiwan Relations Strong",
+    "newsContent": "Taiwan is a shining beacon of democracy in Asia, a top 10 U.S. trading partner, and under threat by an authoritarian anti-freedom regime. Taiwan, even for our own American benefit, deserves our full support.",
     "introSection": {
-      "title": "Our Purpose",
-      "text": "Educating Americans on the importance of Taiwan to the U.S. & working to strengthen the U.S.-Taiwan relationship. With Your Support, we make sure Washington stands up for Taiwan's freedom and democracy."
+      "title": "Every American can play a role in protecting Taiwan's democracy, Especially You!",
+      "text": "Find out how important Taiwan is to America by reading the blog. Ask your members of Congress to support pro-Taiwan legislation. Support ACT's work with a donation to keep things going."
     },
     "billSection": {
       "title": "Bill updates"
     },
     "articleSection": {
-      "title": "Articles"
+      "title": "Articles & News"
     },
     "actionCards": {
       "subscribe": {
@@ -54,8 +54,12 @@
   },
   "billsPage": {
     "title": "Bills",
-    "description": "本屆國會有哪些台灣相關法案？來一探究竟吧！ 🔍",
+    "description": "A list of Taiwan related bills in Congress 🔍",
     "bannerTitle": "Taiwan related bills",
+    "introSection": {
+      "title": "Take Three Minutes to Make a Difference!",
+      "text": "* It only takes three minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy.\n* You will need to enter in your address so POPVOX can correctly identify your members of Congress.\n* **Take action on each piece of legislation**. Don't worry if you can't remember which one you already took action on, the system will let you know if you try to do it twice.\n* ACT uses the POPVOX system to route your message to members of Congress. Don't forget to confirm your email after you take action the first time."
+    },
     "table": {
       "congressColLabel": "國會屆數",
       "billCodeColLabel": "法案編號",
@@ -70,7 +74,7 @@
   },
   "membersPage": {
     "title": "Members",
-    "description": "你選區的議員關注台灣法案嗎？快來看看！ 🤓",
+    "description": "See if your members of Congress in your district are concerned about the Taiwan related bill",
     "bannerTitle": "Congressional members",
     "table": {
       "congressColLabel": "Congress",
