@@ -14,27 +14,18 @@
     <!-- Insights -->
     <section class="insights-section">
       <div class="insights-section-wrapper">
-        <Row>
-          <!-- Filters -->
-          <i-col :xs="{ span: 24 }" :sm="{ span: 6 }" class="filters">
-            <MembersFilters :states="states" :loading="filterLoading" @on-filter="filterMembers"/>
+        <Row :gutter="30" type="flex" >
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }">
+            <BillCountCongressByCategoryCard :categories="categories" />
           </i-col>
-          <!-- List -->
-          <i-col :xs="{ span: 24 }" :sm="{ span: 18 }" class="list">
-            <Row :gutter="20">
-              <i-col>
-                <BillCountCongressByCategoryCard :categories="categories" />
-              </i-col>
-              <i-col>
-                <BillCountCategoryByCongressCard :categories="categories" />
-              </i-col>
-              <i-col class="map-chart-container">
-                <SponsoredBillCountMapCard />
-              </i-col>
-              <i-col class="map-chart-container">
-                <CosponsoredBillCountMapCard />
-              </i-col>
-            </Row>
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }">
+            <BillCountCategoryByCongressCard :categories="categories" />
+          </i-col>
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="map-chart-container">
+            <SponsoredBillCountMapCard />
+          </i-col>
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="map-chart-container">
+            <CosponsoredBillCountMapCard />
           </i-col>
         </Row>
       </div>
@@ -53,7 +44,6 @@ import bannerMembers from '~/assets/img/banner-members.png'
 import MemberSearchResultCard from '~/components/MemberSearchResultCard'
 import TabButton from '~/components/TabButton'
 import Spinner from '~/components/Spinner'
-import MembersFilters from '~/components/MembersFilters'
 import SponsoredBillCountMapCard from '~/components/Analytics/SponsoredBillCountMapCard'
 import CosponsoredBillCountMapCard from '~/components/Analytics/CosponsoredBillCountMapCard'
 import BillCountCategoryByCongressCard from '~/components/Analytics/BillCountCategoryByCongressCard'
@@ -71,7 +61,6 @@ export default {
     }
   },
   components: {
-    MembersFilters,
     InfiniteLoading,
     MemberSearchResultCard,
     Spinner,
@@ -243,11 +232,6 @@ export default {
   }
 }
 
-.filters {
-  padding-right: 40px;
-  margin-bottom: 20px;
-}
-
 // desktop
 @media screen and (min-width: $mediumDeviceWidth + 1) {
   .image-container {
@@ -272,10 +256,6 @@ export default {
     .image-container {
       display: none;
     }
-  }
-
-  .filters {
-    padding-right: 0px;
   }
 }
 </style>
