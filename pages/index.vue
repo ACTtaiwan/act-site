@@ -31,8 +31,30 @@
           <h3 class="intro-text">{{ $t('landingPage.introSection.text') }}</h3>
         </div>
         <!-- Donate us -->
-        <div class="donate-btn">
+        <!-- <div class="donate-btn">
           <DonateButton fontSize="1.5em" />
+        </div> -->
+        <div class="actions-wrapper">
+          <ActionCard 
+            :card="actionCardSubscribe" 
+            :showImage="true"
+            :showTitle="true"
+            :showSubtitle="true"
+            @press="onClickSubscribe()"/>
+          <router-link :to="`/bills`">
+            <ActionCard 
+              :card="actionCardTakeAction" 
+              :showImage="true"
+              :showTitle="true"
+              :showSubtitle="true"/>
+          </router-link>
+          <a :href="DonorboxHelper.donateUrl" class="custom-dbox-popup">
+            <ActionCard 
+              :card="actionCardDonate" 
+              :showImage="true"
+              :showTitle="true"
+              :showSubtitle="true"/>
+          </a>
         </div>
       </div>
     </section>
@@ -84,7 +106,7 @@
               :span="isPhone ? 24 : isTablet ? 12 : 8">
               <BillCard
                 :bill="bill"
-                showSupportBtn="true"
+                :showSupportBtn="true"
                 class="bill-card" />
             </i-col>
           </Row>
@@ -111,6 +133,9 @@ import appConfig from '~/config/app.json'
 // images
 import congress from '~/assets/img/banner-home.png'
 import people from '~/assets/img/banner-people.png'
+import actionImgSubscribe from '~/assets/img/keep-posted.svg'
+import actionImgTakeAction from '~/assets/img/take-action.svg'
+import actionImgSupportAct from '~/assets/img/support-act.svg'
 // components
 import Spinner from '~/components/Spinner'
 import BillCard from '~/components/HomePage/BillCard'
@@ -118,10 +143,15 @@ import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
 import DonateButton from '~/components/DonateButton'
 import TwButton from '~/components/TwButton'
+import ActionCard from '~/components/ActionCard'
 // queriess
 import PrefetchBillIdsQuery from '~/apollo/queries/HomePage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/HomePage/Bills'
 import ArticlesQuery from '~/apollo/queries/HomePage/Articles'
+// plugins
+import { DonorboxHelper } from '@/plugins/utils'
+
+import axios from 'axios';
 
 export default {
   components: {
@@ -130,7 +160,8 @@ export default {
     Spinner,
     Subscription,
     DonateButton,
-    TwButton
+    TwButton,
+    ActionCard
   },
   data () {
     return {
@@ -142,7 +173,23 @@ export default {
       billIds: [],
       articles: [],
       congress,
-      people
+      people,
+      DonorboxHelper,
+      actionCardSubscribe: {
+        imageUrl: actionImgSubscribe,
+        title: this.$t('landingPage.actionCards.subscribe.title'),
+        subtitle: this.$t('landingPage.actionCards.subscribe.subtitle')
+      },
+      actionCardTakeAction: {
+        imageUrl: actionImgTakeAction,
+        title: this.$t('landingPage.actionCards.takeAction.title'),
+        subtitle: this.$t('landingPage.actionCards.takeAction.subtitle')
+      },
+      actionCardDonate: {
+        imageUrl: actionImgSupportAct,
+        title: this.$t('landingPage.actionCards.supportAct.title'),
+        subtitle: this.$t('landingPage.actionCards.supportAct.subtitle')
+      }
     }
   },
   head () {
@@ -170,6 +217,29 @@ export default {
       return `background-image: url("${this.congress}"); background-size: cover;`
     }
   },
+  mounted () {
+    axios.post(
+      'https://ustw.auth0.com/oauth/token',
+      {
+        'grant_type':'client_credentials',
+        'client_id': 'VSwVpqaR9GBKzY7RMwTJQc4FvUt1k03d',
+        'client_secret': 'HLdRUxtcTCvJeNBLt4yZ_W-RMu7NdAv4VduaTwdbEQIktcelC1w4NLvj3cnx2cOy',
+        'audience': 'https://graphql.uswatch.tw'
+      }
+    ).then(response => {
+      console.log(JSON.stringify(response, null, 2));
+    }).catch(err => {
+      console.err(JSON.stringify(err, null, 2));
+    });
+    if (!window.DonorBox) {
+      window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://donorbox.org/install-popup-button.js';
+      script.defer = true;
+      window.document.head.appendChild(script);
+    }
+  },  
   methods: {
     getLatestActionDate (actions) {
       let latestActionTime = 0
@@ -208,6 +278,9 @@ export default {
         .catch(error => {
           console.log('get bills error', error)
         })
+    },
+    onClickSubscribe () {
+      alert('hello')
     }
   },
   apollo: {
@@ -390,7 +463,7 @@ export default {
     }
   }
 
-  &:nth-child(2n) {
+  &:nth-child(2n+1) {
     background: $twWhite;
   }
 
@@ -441,6 +514,12 @@ export default {
   margin: 20px auto;
   width: 200px;
   height: 50px;
+}
+
+.actions-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
 }
 
 </style>
