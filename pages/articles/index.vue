@@ -14,9 +14,9 @@
 
     <!-- Carousel -->
     <Carousel
+      :autoplaySpeed="5000"
       v-model="carouselPage"
       autoplay
-      autoplaySpeed="5000"
       trigger="click"
       arrow="hover"
       dots="outside">

@@ -36,6 +36,20 @@
     },
     "articleSection": {
       "title": "Articles & News"
+    },
+    "actionCards": {
+      "subscribe": {
+        "title": "Don’t Fall Behind",
+        "subtitle": "Join over 2,000 subscribers who keep up with U.S. Taiwan relations"
+      },
+      "takeAction": {
+        "title": "Influence Congress",
+        "subtitle": "Tell Congress to support U.S.-Taiwan relations and protect Taiwan’s important democracy"
+      },
+      "supportAct": {
+        "title": "Donate to ACT",
+        "subtitle": "Support educating Americans about Taiwan and advancing U.S. Taiwan relations"
+      }
     }
   },
   "billsPage": {

@@ -223,7 +223,7 @@
     </section>
 
     <!-- Methodoloty -->
-    <section id="methodology" class="section">
+    <!-- <section id="methodology" class="section">
       <div class="section-wrapper">
         <h1 class="section-title">Analysis methodology</h1>
         <Card :bordered="false" class="section-card">
@@ -231,7 +231,7 @@
           <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
         </Card>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 

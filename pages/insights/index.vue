@@ -14,27 +14,12 @@
     <!-- Insights -->
     <section class="insights-section">
       <div class="insights-section-wrapper">
-        <Row>
-          <!-- Filters -->
-          <i-col :xs="{ span: 24 }" :sm="{ span: 6 }" class="filters">
-            <MembersFilters :states="states" :loading="filterLoading" @on-filter="filterMembers"/>
+        <Row :gutter="30" type="flex" >
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="map-chart-container">
+            <SponsoredBillCountMapCard />
           </i-col>
-          <!-- List -->
-          <i-col :xs="{ span: 24 }" :sm="{ span: 18 }" class="list">
-            <Row :gutter="20">
-              <i-col>
-                <BillCountCongressByCategoryCard :categories="categories" />
-              </i-col>
-              <i-col>
-                <BillCountCategoryByCongressCard :categories="categories" />
-              </i-col>
-              <i-col class="map-chart-container">
-                <SponsoredBillCountMapCard />
-              </i-col>
-              <i-col class="map-chart-container">
-                <CosponsoredBillCountMapCard />
-              </i-col>
-            </Row>
+          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="map-chart-container">
+            <CosponsoredBillCountMapCard />
           </i-col>
         </Row>
       </div>
@@ -53,7 +38,6 @@ import bannerMembers from '~/assets/img/banner-members.png'
 import MemberSearchResultCard from '~/components/MemberSearchResultCard'
 import TabButton from '~/components/TabButton'
 import Spinner from '~/components/Spinner'
-import MembersFilters from '~/components/MembersFilters'
 import SponsoredBillCountMapCard from '~/components/Analytics/SponsoredBillCountMapCard'
 import CosponsoredBillCountMapCard from '~/components/Analytics/CosponsoredBillCountMapCard'
 import BillCountCategoryByCongressCard from '~/components/Analytics/BillCountCategoryByCongressCard'
@@ -71,7 +55,6 @@ export default {
     }
   },
   components: {
-    MembersFilters,
     InfiniteLoading,
     MemberSearchResultCard,
     Spinner,
@@ -137,11 +120,8 @@ export default {
       if (!this.memberIds.length) {
         try {
           let result = await this.prefetchMemberIds()
-          console.log('prefetch ids: ', result)
           this.memberIds = result.data.members[0].prefetchIds
-        } catch (error) {
-          console.log('no data :(', error)
-        }
+        } catch (error) {}
       }
 
       const items = this.getCurrentPageItems()
@@ -155,11 +135,9 @@ export default {
             this.members = [...this.members, ...members]
             this.page++
             $state.loaded()
-            console.log('BBBBB', data.members)
           })
           .catch(error => {
             this.filterLoading = false
-            console.log('get members error', error)
             $state.complete()
           })
       } else {
@@ -171,7 +149,6 @@ export default {
       this.filterLoading = true
       this.resetPage()
       this.filterData = filterData
-      console.log('filterData', filterData.selectedStates)
     }
   },
   apollo: {
@@ -243,9 +220,8 @@ export default {
   }
 }
 
-.filters {
-  padding-right: 40px;
-  margin-bottom: 20px;
+.map-chart-container {
+  position: inherit;
 }
 
 // desktop
@@ -272,10 +248,6 @@ export default {
     .image-container {
       display: none;
     }
-  }
-
-  .filters {
-    padding-right: 0px;
   }
 }
 </style>
