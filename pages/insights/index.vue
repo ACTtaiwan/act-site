@@ -15,12 +15,6 @@
     <section class="insights-section">
       <div class="insights-section-wrapper">
         <Row :gutter="30" type="flex" >
-          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-            <BillCountCongressByCategoryCard :categories="categories" />
-          </i-col>
-          <i-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-            <BillCountCategoryByCongressCard :categories="categories" />
-          </i-col>
           <i-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="map-chart-container">
             <SponsoredBillCountMapCard />
           </i-col>
@@ -126,11 +120,8 @@ export default {
       if (!this.memberIds.length) {
         try {
           let result = await this.prefetchMemberIds()
-          console.log('prefetch ids: ', result)
           this.memberIds = result.data.members[0].prefetchIds
-        } catch (error) {
-          console.log('no data :(', error)
-        }
+        } catch (error) {}
       }
 
       const items = this.getCurrentPageItems()
@@ -144,11 +135,9 @@ export default {
             this.members = [...this.members, ...members]
             this.page++
             $state.loaded()
-            console.log('BBBBB', data.members)
           })
           .catch(error => {
             this.filterLoading = false
-            console.log('get members error', error)
             $state.complete()
           })
       } else {
@@ -160,7 +149,6 @@ export default {
       this.filterLoading = true
       this.resetPage()
       this.filterData = filterData
-      console.log('filterData', filterData.selectedStates)
     }
   },
   apollo: {
@@ -230,6 +218,10 @@ export default {
   .insights-section-wrapper {
     @extend .pageWrapper-large;
   }
+}
+
+.map-chart-container {
+  position: inherit;
 }
 
 // desktop
