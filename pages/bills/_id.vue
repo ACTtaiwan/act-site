@@ -17,7 +17,7 @@
                 :bill="bill" />
               <BillSponsorsMapCard :bill="bill" />
               <BillVersionsCard
-                v-if="bill.versions.length > 0"
+                v-if="bill.versions.length > 0 && !isPhone"
                 :bill="bill" />
               <POPVox :bill="bill"/>
             </i-col>

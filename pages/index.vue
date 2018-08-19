@@ -311,8 +311,10 @@ export default {
         }
       },
       update (data) {
-        return _.orderBy(data.articles, article => parseInt(article.date), ['desc'])
-          .slice(0, this.numberOfArticleCards)
+        return _.orderBy(data.articles, article => parseInt(article.date), ['desc']).slice(
+          0,
+          this.numberOfArticleCards
+        )
       },
       result (result) {
         if (!result.loading) {
