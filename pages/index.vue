@@ -35,22 +35,22 @@
           <DonateButton fontSize="1.5em" />
         </div> -->
         <div class="actions-wrapper">
-          <ActionCard 
-            :card="actionCardSubscribe" 
+          <ActionCard
+            :card="actionCardSubscribe"
             :showImage="true"
             :showTitle="true"
             :showSubtitle="true"
             @press="onClickSubscribe()"/>
           <router-link :to="`/bills`">
-            <ActionCard 
-              :card="actionCardTakeAction" 
+            <ActionCard
+              :card="actionCardTakeAction"
               :showImage="true"
               :showTitle="true"
               :showSubtitle="true"/>
           </router-link>
           <a :href="DonorboxHelper.donateUrl" class="custom-dbox-popup">
-            <ActionCard 
-              :card="actionCardDonate" 
+            <ActionCard
+              :card="actionCardDonate"
               :showImage="true"
               :showTitle="true"
               :showSubtitle="true"/>
@@ -159,7 +159,7 @@ import ArticlesQuery from '~/apollo/queries/HomePage/Articles'
 // plugins
 import { DonorboxHelper } from '@/plugins/utils'
 
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   components: {
@@ -226,28 +226,28 @@ export default {
     }
   },
   mounted () {
-    axios.post(
-      'https://ustw.auth0.com/oauth/token',
-      {
-        'grant_type':'client_credentials',
-        'client_id': 'VSwVpqaR9GBKzY7RMwTJQc4FvUt1k03d',
-        'client_secret': 'HLdRUxtcTCvJeNBLt4yZ_W-RMu7NdAv4VduaTwdbEQIktcelC1w4NLvj3cnx2cOy',
-        'audience': 'https://graphql.uswatch.tw'
-      }
-    ).then(response => {
-      console.log(JSON.stringify(response, null, 2));
-    }).catch(err => {
-      console.err(JSON.stringify(err, null, 2));
-    });
+    axios
+      .post('https://ustw.auth0.com/oauth/token', {
+        grant_type: 'client_credentials',
+        client_id: 'VSwVpqaR9GBKzY7RMwTJQc4FvUt1k03d',
+        client_secret: 'HLdRUxtcTCvJeNBLt4yZ_W-RMu7NdAv4VduaTwdbEQIktcelC1w4NLvj3cnx2cOy',
+        audience: 'https://graphql.uswatch.tw'
+      })
+      .then(response => {
+        console.log(JSON.stringify(response, null, 2))
+      })
+      .catch(err => {
+        console.err(JSON.stringify(err, null, 2))
+      })
     if (!window.DonorBox) {
       window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://donorbox.org/install-popup-button.js';
-      script.defer = true;
-      window.document.head.appendChild(script);
+      var script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = 'https://donorbox.org/install-popup-button.js'
+      script.defer = true
+      window.document.head.appendChild(script)
     }
-  },  
+  },
   methods: {
     getLatestActionDate (actions) {
       let latestActionTime = 0
@@ -473,7 +473,7 @@ export default {
     }
   }
 
-  &:nth-child(2n+1) {
+  &:nth-child(2n + 1) {
     background: $twWhite;
   }
 
@@ -481,6 +481,7 @@ export default {
     padding: 0;
   }
 
+  &.articles,
   &.bills {
     .section-title-wrap {
       margin-bottom: 20px;
@@ -531,5 +532,4 @@ export default {
   display: flex;
   justify-content: space-around;
 }
-
 </style>
