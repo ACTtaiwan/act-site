@@ -42,6 +42,10 @@
     "title": "Bills",
     "description": "A list of Taiwan related bills in Congress 🔍",
     "bannerTitle": "Taiwan related bills",
+    "introSection": {
+      "title": "Take Three Minutes to Make a Difference!",
+      "text": "* It only takes three minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy.\n* You will need to enter in your address so POPVOX can correctly identify your members of Congress.\n* **Take action on each piece of legislation**. Don't worry if you can't remember which one you already took action on, the system will let you know if you try to do it twice.\n* ACT uses the POPVOX system to route your message to members of Congress. Don't forget to confirm your email after you take action the first time."
+    },
     "table": {
       "congressColLabel": "國會屆數",
       "billCodeColLabel": "法案編號",
