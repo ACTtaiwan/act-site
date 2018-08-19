@@ -30,10 +30,6 @@
         <div class="info-cards-section-wrapper">
           <h3 class="intro-text">{{ $t('landingPage.introSection.text') }}</h3>
         </div>
-        <!-- Donate us -->
-        <!-- <div class="donate-btn">
-          <DonateButton fontSize="1.5em" />
-        </div> -->
         <div class="actions-wrapper">
           <ActionCard 
             :card="actionCardSubscribe" 
@@ -79,7 +75,7 @@
         </div>
         <router-link :to="`/articles`">
           <div class="more-btn">
-            <TwButton label="More Articles" fontSize="1.5em" width="100%" height="100%"/>
+            <TwButton label="More Articles" color="gray" fontSize="1.3em" width="100%" height="100%"/>
           </div>
         </router-link>
       </div>
@@ -113,7 +109,7 @@
         </div>
         <router-link :to="`/bills`">
           <div class="more-btn">
-            <TwButton label="More Bills" fontSize="1.5em" width="100%" height="100%"/>
+            <TwButton label="More Bills" color="gray" fontSize="1.3em" width="100%" height="100%"/>
           </div>
         </router-link>
       </div>
