@@ -124,9 +124,9 @@
     </section>
 
     <!-- Subscription -->
-    <section class="subscription section">
+    <!-- <section class="subscription section">
       <Subscription/>
-    </section>
+    </section> -->
   </div>
 </template>
 
