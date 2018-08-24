@@ -525,5 +525,6 @@ export default {
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 </style>
