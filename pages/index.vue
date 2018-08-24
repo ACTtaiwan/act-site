@@ -36,7 +36,7 @@
             :showImage="true"
             :showTitle="true"
             :showSubtitle="true"
-            @press="onClickSubscribe()"/>
+            @press="showSubscription = true"/>
           <router-link :to="`/bills`">
             <ActionCard
               :card="actionCardTakeAction"
@@ -124,9 +124,8 @@
     </section>
 
     <!-- Subscription -->
-    <!-- <section class="subscription section">
-      <Subscription/>
-    </section> -->
+    <Subscription :show="showSubscription" @close="showSubscription = false"/>
+
   </div>
 </template>
 
@@ -165,7 +164,8 @@ export default {
     Subscription,
     DonateButton,
     TwButton,
-    ActionCard
+    ActionCard,
+    Subscription
   },
   data () {
     return {
@@ -179,6 +179,7 @@ export default {
       congress,
       people,
       DonorboxHelper,
+      showSubscription: false,
       actionCardSubscribe: {
         imageUrl: actionImgSubscribe,
         title: this.$t('landingPage.actionCards.subscribe.title'),
@@ -282,9 +283,6 @@ export default {
         .catch(error => {
           console.log('get bills error', error)
         })
-    },
-    onClickSubscribe () {
-      alert('hello')
     }
   },
   apollo: {
