@@ -106,6 +106,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      if (ctx.isClient) {
+        config.devtool = 'eval-source-map'
+      } else {
+        config.devtool = 'inline-source-map'
+      }
     }
   },
 

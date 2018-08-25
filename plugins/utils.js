@@ -19,7 +19,7 @@ export class DonorboxHelper {
   }
 
   static get embedFormUrl () {
-    return `${DonorboxHelper.host}/embed/${DonorboxHelper.campaign}?show_content=true`
+    return `${DonorboxHelper.host}/embed/${DonorboxHelper.campaign}?show_content=true&default_interval=m`
   }
 
   static get donateUrl () {

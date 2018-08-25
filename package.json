@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "HOST=0.0.0.0 nuxt dev",
+    "dev-debug": "HOST=0.0.0.0 node --inspect node_modules/.bin/nuxt",
     "build": "nuxt build",
     "build-analyze": "nuxt build --analyze",
     "start": "nuxt start",
