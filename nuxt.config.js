@@ -28,7 +28,8 @@ module.exports = {
   ** Define environment variables
   */
   env: {
-    baseUrl: '/'
+    baseUrl: '/',
+    FRONTEND_API_KEY: ''
   },
 
   /*
