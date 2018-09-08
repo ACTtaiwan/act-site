@@ -2,16 +2,10 @@
   <div :class="{ 'phone': isPhone, 'tablet': isTablet }" class="landing">
 
     <!-- Banner -->
-    <section
-      :style="bannerStyle"
-      class="banner">
-      <div
-        :class="{ tablet: isTablet, phone: isPhone }"
-        class="banner-wrapper">
+    <section :style="bannerStyle" class="banner">
+      <div :class="{ tablet: isTablet, phone: isPhone }" class="banner-wrapper">
         <div class="image-container" >
-          <img
-            :src="people"
-            class="front-img">
+          <img :src="people" class="front-img">
         </div>
         <div class="text-container">
           <h1 class="banner-title">{{ this.$t('landingPage.bannerTitle') }}</h1>
@@ -167,7 +161,9 @@ export default {
     ActionCard,
     Subscription
   },
-  data () {
+  data (context) {
+    let urlQuery = context.$route.query
+
     return {
       numberOfBillCards: 3,
       numberOfArticleCards: 3,
@@ -179,7 +175,7 @@ export default {
       congress,
       people,
       DonorboxHelper,
-      showSubscription: false,
+      showSubscription: urlQuery.subscribe ? true : false,
       actionCardSubscribe: {
         imageUrl: actionImgSubscribe,
         title: this.$t('landingPage.actionCards.subscribe.title'),
@@ -231,7 +227,7 @@ export default {
         audience: 'https://graphql.uswatch.tw'
       })
       .then(response => {
-        console.log(JSON.stringify(response, null, 2))
+        // console.log(JSON.stringify(response, null, 2))
       })
       .catch(err => {
         console.err(JSON.stringify(err, null, 2))
