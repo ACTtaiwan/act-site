@@ -175,7 +175,7 @@ export default {
       congress,
       people,
       DonorboxHelper,
-      showSubscription: urlQuery.subscribe ? true : false,
+      showSubscription: urlQuery.subscribe === 'true' ? true : false,
       actionCardSubscribe: {
         imageUrl: actionImgSubscribe,
         title: this.$t('landingPage.actionCards.subscribe.title'),
