@@ -23,7 +23,7 @@
           <i-col :xs="{ span: 24 }" :sm="{ span: 18 }" class="list">
             <Alert class="intro-section">
               <p class="title">✍🏻 Wrtie to lawmaker and make a difference!</p>
-              <p slot="desc" class="text">Click that <b>Write to lawmaker</b> button on every bill! It only takes three minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy.</p>
+              <p slot="desc" class="text">Click that <b>Write to lawmaker</b> button on every bill! It only takes 3 minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy.</p>
             </Alert>
             <Row>
               <i-col v-for="bill in bills" :key="bill.id" span="24">
@@ -248,6 +248,7 @@ export default {
   .text {
     font-size: 14px;
     color: #111111;
+    text-align: left;
   }
 }
 

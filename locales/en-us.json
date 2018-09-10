@@ -56,10 +56,6 @@
     "title": "Bills",
     "description": "A list of Taiwan related bills in Congress 🔍",
     "bannerTitle": "Taiwan related bills",
-    "introSection": {
-      "title": "✍🏻 Wrtie to lawmaker and make a difference!",
-      "text": "Click that \"Write to lawmaker\" button on every bill! It only takes three minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy."
-    },
     "table": {
       "congressColLabel": "國會屆數",
       "billCodeColLabel": "法案編號",
