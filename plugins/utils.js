@@ -5,6 +5,7 @@ export const get = url => {
   return axios({
     method: 'GET',
     url,
+    // Propublica API Key
     headers: { 'X-API-Key': 'syre14A0ZO81RzG81d5L4PbjkjF4Uu0aFWSjfNqf' }
   })
 }
@@ -15,11 +16,13 @@ export class DonorboxHelper {
   }
 
   static get campaign () {
-    return appConfig.donorboxCampaign;
+    return appConfig.donorboxCampaign
   }
 
   static get embedFormUrl () {
-    return `${DonorboxHelper.host}/embed/${DonorboxHelper.campaign}?show_content=true&default_interval=m`
+    return `${DonorboxHelper.host}/embed/${
+      DonorboxHelper.campaign
+    }?show_content=true&default_interval=m`
   }
 
   static get donateUrl () {

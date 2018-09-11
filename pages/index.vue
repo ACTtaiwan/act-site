@@ -38,13 +38,12 @@
               :showTitle="true"
               :showSubtitle="true"/>
           </router-link>
-          <a :href="DonorboxHelper.donateUrl" class="custom-dbox-popup">
-            <ActionCard
-              :card="actionCardDonate"
-              :showImage="true"
-              :showTitle="true"
-              :showSubtitle="true"/>
-          </a>
+          <ActionCard
+            :card="actionCardDonate"
+            :showImage="true"
+            :showTitle="true"
+            :showSubtitle="true"
+            @press="showDonorbox = true"/>
         </div>
       </div>
     </section>
@@ -120,6 +119,9 @@
     <!-- Subscription -->
     <Subscription :show="showSubscription" @close="showSubscription = false"/>
 
+    <!-- Donorbox -->
+    <Donorbox :show="showDonorbox" @close="showDonorbox = false"/>
+
   </div>
 </template>
 
@@ -138,6 +140,7 @@ import Spinner from '~/components/Spinner'
 import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
+import Donorbox from '~/components/Donorbox'
 import DonateButton from '~/components/DonateButton'
 import TwButton from '~/components/TwButton'
 import ActionCard from '~/components/ActionCard'
@@ -157,6 +160,7 @@ export default {
     Spinner,
     Subscription,
     DonateButton,
+    Donorbox,
     TwButton,
     ActionCard,
     Subscription
@@ -176,6 +180,7 @@ export default {
       people,
       DonorboxHelper,
       showSubscription: urlQuery.subscribe === 'true' ? true : false,
+      showDonorbox: urlQuery.donate === 'true' ? true : false,
       actionCardSubscribe: {
         imageUrl: actionImgSubscribe,
         title: this.$t('landingPage.actionCards.subscribe.title'),
@@ -193,17 +198,6 @@ export default {
       }
     }
   },
-  head () {
-    return {
-      title: this.$t('site.title'),
-      meta: [
-        { hid: 'description', name: 'description', content: this.$t('landingPage.description') },
-        { property: 'og:url', content: appConfig.site.url },
-        { property: 'og:title', content: this.$t('landingPage.title') },
-        { property: 'og:description', content: this.$t('landingPage.description') }
-      ]
-    }
-  },
   computed: {
     locale () {
       return this.$store.state.locale
@@ -216,6 +210,17 @@ export default {
     },
     bannerStyle () {
       return `background-image: url("${this.congress}"); background-size: cover;`
+    }
+  },
+  head () {
+    return {
+      title: this.$t('site.title'),
+      meta: [
+        { hid: 'description', name: 'description', content: this.$t('landingPage.description') },
+        { property: 'og:url', content: appConfig.site.url },
+        { property: 'og:title', content: this.$t('landingPage.title') },
+        { property: 'og:description', content: this.$t('landingPage.description') }
+      ]
     }
   },
   mounted () {
@@ -232,14 +237,14 @@ export default {
       .catch(err => {
         console.err(JSON.stringify(err, null, 2))
       })
-    if (!window.DonorBox) {
-      window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }
-      var script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.src = 'https://donorbox.org/install-popup-button.js'
-      script.defer = true
-      window.document.head.appendChild(script)
-    }
+    // if (!window.DonorBox) {
+    //   window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }
+    //   var script = document.createElement('script')
+    //   script.type = 'text/javascript'
+    //   script.src = 'https://donorbox.org/install-popup-button.js'
+    //   script.defer = true
+    //   window.document.head.appendChild(script)
+    // }
   },
   methods: {
     getLatestActionDate (actions) {

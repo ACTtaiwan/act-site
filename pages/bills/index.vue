@@ -22,7 +22,7 @@
           <!-- List -->
           <i-col :xs="{ span: 24 }" :sm="{ span: 18 }" class="list">
             <Alert class="intro-section">
-              <p class="title">✍🏻 Wrtie to lawmaker and make a difference!</p>
+              <p class="title">✍🏻 Write to lawmaker and make a difference!</p>
               <p slot="desc" class="text">Click that <b>Write to lawmaker</b> button on every bill! It only takes 3 minutes to ask your members of Congress to support legislation that strengthens U.S.-Taiwan relations and helps to protect Taiwan's important democracy.</p>
             </Alert>
             <Row>
