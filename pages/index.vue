@@ -267,6 +267,7 @@ export default {
     getUpdatedBills () {
       this.fetchBills(this.billIds)
         .then(({ data }) => {
+          console.log('#####', data)
           // the returned bill order is not the same as the bill id order provided
           // TODO: move this to graphql server side
           const billsMap = _.keyBy(data.bills, 'id')
