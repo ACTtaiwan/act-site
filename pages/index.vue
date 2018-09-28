@@ -141,7 +141,6 @@ import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
 import Donorbox from '~/components/Donorbox'
-import DonateButton from '~/components/DonateButton'
 import TwButton from '~/components/TwButton'
 import ActionCard from '~/components/ActionCard'
 // queriess
@@ -157,7 +156,6 @@ export default {
     ArticleCard,
     Spinner,
     Subscription,
-    DonateButton,
     Donorbox,
     TwButton,
     ActionCard,

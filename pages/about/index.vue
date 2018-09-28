@@ -193,17 +193,7 @@
       <div class="section-wrapper">
         <h1 class="section-title">Support us</h1>
         <Card :bordered="false" class="section-card">
-          <script src="https://donorbox.org/widget.js" paypalExpress="false"/>
-          <iframe
-            :src="DonorboxHelper.embedFormUrl"
-            height="685px"
-            width="100%"
-            style="max-width:100%; min-width:100%; max-height:none!important"
-            seamless="seamless"
-            name="donorbox"
-            frameborder="0"
-            scrolling="no"
-            allowpaymentrequest/>
+          <DonorboxContent />
         </Card>
       </div>
     </section>
@@ -241,16 +231,19 @@ import bannerBackground from '~/assets/img/banner.png'
 import bannerBills from '~/assets/img/banner-bills.png'
 import ship from '~/assets/img/ship.png'
 
-import { DonorboxHelper } from '@/plugins/utils'
+// components
+import DonorboxContent from '~/components/DonorboxContent'
 
 export default {
+  components: {
+    DonorboxContent
+  },
   data () {
     return {
       bannerBackground,
       bannerBills,
       bannerStyle: `background-image: url("${bannerBackground}"); background-size: cover;`,
-      ship,
-      DonorboxHelper
+      ship
     }
   },
   computed: {
