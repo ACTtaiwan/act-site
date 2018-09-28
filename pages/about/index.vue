@@ -235,6 +235,11 @@ import ship from '~/assets/img/ship.png'
 import DonorboxContent from '~/components/DonorboxContent'
 
 export default {
+  head () {
+    return {
+      title: `${this.$t('aboutPage.title')} | ${this.$t('site.title')}`
+    }
+  },
   components: {
     DonorboxContent
   },

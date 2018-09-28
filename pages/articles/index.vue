@@ -95,6 +95,11 @@ import ArticleCard from '~/components/HomePage/ArticleCard'
 import ArticleBannerCard from '~/components/ArticleBannerCard'
 
 export default {
+  head () {
+    return {
+      title: `${this.$t('aritclesPage.title')} | ${this.$t('site.title')}`
+    }
+  },
   components: {
     ArticleCard,
     ArticleBannerCard,
@@ -147,9 +152,9 @@ export default {
       if (this.isPhone) {
         return this.articles
       } else if (this.isTablet) {
-        return _.filter(this.articles, (x, i) => (i % 2) == col)
+        return _.filter(this.articles, (x, i) => i % 2 == col)
       } else {
-        return _.filter(this.articles, (x, i) => (i % 3) == col)
+        return _.filter(this.articles, (x, i) => i % 3 == col)
       }
     }
   }
@@ -230,6 +235,5 @@ export default {
     height: 20vh;
   }
 }
-
 </style>
 
