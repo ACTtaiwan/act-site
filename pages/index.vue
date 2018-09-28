@@ -148,8 +148,6 @@ import ActionCard from '~/components/ActionCard'
 import PrefetchBillIdsQuery from '~/apollo/queries/HomePage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/HomePage/Bills'
 import ArticlesQuery from '~/apollo/queries/HomePage/Articles'
-// plugins
-import { DonorboxHelper } from '@/plugins/utils'
 
 import axios from 'axios'
 
@@ -169,8 +167,8 @@ export default {
     let urlQuery = context.$route.query
 
     return {
-      numberOfBillCards: 3,
-      numberOfArticleCards: 3,
+      numberOfBillCards: 6,
+      numberOfArticleCards: 6,
       isBillUpdateLoading: true,
       isArticleUpdateLoading: true,
       bills: [],
@@ -178,7 +176,6 @@ export default {
       articles: [],
       congress,
       people,
-      DonorboxHelper,
       showSubscription: urlQuery.subscribe === 'true' ? true : false,
       showDonorbox: urlQuery.donate === 'true' ? true : false,
       actionCardSubscribe: {

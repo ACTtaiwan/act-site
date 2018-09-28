@@ -22,12 +22,12 @@
             <br>
             <p>We are United States citizens who care deeply for our country and the ideals it was founded on, freedom and democracy. While firstly supporting these ideals at home, we realize <strong>America cannot effectively stand alone as a democracy in this world;</strong> we must join hands with other peoples who hold fast and defend those same ideals.</p>
             <br>
-            
+
             <h2>WHAT WE DO</h2>
             <br>
             <p>Taiwan’s democracy is important to United States' own democracy, security, and economy, so ACT works to spur the U.S. Government to be <strong>fully supportive of Taiwan’s right to self-determination.</strong> This right is under attack by those who would gain by weakening both America and Taiwan's freedoms and security.</p>
             <br>
-            
+
             <h2>HOW WE DO IT</h2>
             <br>
             <p>ACT monitors United States government and Congressional actions regarding Taiwan. ACT keeps people informed via email, website, and social media posting. <strong>ACT then provides an easy to use online tool for people to tell their members of Congress to support or oppose the important legislation in the U.S. Congress.</strong></p>
@@ -104,24 +104,24 @@
               <!-- FB share button -->
               <iframe
                 class="fb-share-btn"
-                src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
-                scrolling="no" 
+                src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965"
+                scrolling="no"
                 height="28"
                 width="152"
-                frameborder="0" 
-                allowTransparency="true" 
+                frameborder="0"
+                allowTransparency="true"
                 allow="encrypted-media"/>
             </div>
-            
+
             <!-- FB timeline -->
-            <div 
+            <div
               :class="{ 'hide': shouldBreakWidth }"
-              class="fb-page" 
-              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/" 
-              data-tabs="timeline" 
-              data-small-header="true" 
-              data-adapt-container-width="false" 
-              data-hide-cover="true" 
+              class="fb-page"
+              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/"
+              data-tabs="timeline"
+              data-small-header="true"
+              data-adapt-container-width="false"
+              data-hide-cover="true"
               data-show-facepile="false"
               data-width="500"
               data-height="800">
@@ -130,32 +130,32 @@
               </blockquote>
             </div>
 
-            <div 
+            <div
               :class="{ 'hide': !shouldBreakWidth }"
-              class="fb-page" 
-              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/" 
-              data-tabs="timeline" 
-              data-small-header="true" 
-              data-adapt-container-width="false" 
-              data-hide-cover="true" 
+              class="fb-page"
+              data-href="https://www.facebook.com/AmericanCitizensforTaiwan/"
+              data-tabs="timeline"
+              data-small-header="true"
+              data-adapt-container-width="false"
+              data-hide-cover="true"
               data-show-facepile="false"
               data-width="300"
               data-height="800">
               <blockquote cite="https://www.facebook.com/AmericanCitizensforTaiwan/" class="fb-xfbml-parse-ignore">
                 <a href="https://www.facebook.com/AmericanCitizensforTaiwan/">American Citizens for Taiwan</a>
               </blockquote>
-            </div> 
+            </div>
 
             <!-- FB share button -->
             <iframe
               v-if="shouldHideTimeline"
-              src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965" 
-              scrolling="no" 
+              src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAmericanCitizensforTaiwan%2F&height=28&layout=button_count&size=large&show_faces=true&share=true&appId=126739610711965"
+              scrolling="no"
               height="28"
               width="152"
-              frameborder="0" 
-              allowTransparency="true" 
-              allow="encrypted-media"/>          
+              frameborder="0"
+              allowTransparency="true"
+              allow="encrypted-media"/>
           </Card>
 
           <Card :bordered="false" class="twitter-card section-card">
@@ -170,10 +170,10 @@
 
             <!-- Twitter timeline -->
             <div class="tw-timeline-wrapper">
-              <a 
-                href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" 
-                class="twitter-timeline" 
-                data-height="800" 
+              <a
+                href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw"
+                class="twitter-timeline"
+                data-height="800"
                 data-chrome="nofooter noheader noborders transparent">
                 Tweets by @ACT
               </a>
@@ -182,25 +182,25 @@
             <!-- Twitter follow button -->
             <div v-show="shouldHideTimeline">
               <a href="https://twitter.com/ACTtaiwan?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @ACT</a>
-            </div>            
+            </div>
           </Card>
-        </div>    
+        </div>
       </div>
     </section>
-    
+
     <!-- Support us -->
     <section id="support" class="section">
       <div class="section-wrapper">
         <h1 class="section-title">Support us</h1>
         <Card :bordered="false" class="section-card">
           <script src="https://donorbox.org/widget.js" paypalExpress="false"/>
-          <iframe 
-            :src="DonorboxHelper.embedFormUrl" 
-            height="685px" 
-            width="100%" 
-            style="max-width:100%; min-width:100%; max-height:none!important" 
+          <iframe
+            :src="DonorboxHelper.embedFormUrl"
+            height="685px"
+            width="100%"
+            style="max-width:100%; min-width:100%; max-height:none!important"
             seamless="seamless"
-            name="donorbox" 
+            name="donorbox"
             frameborder="0"
             scrolling="no"
             allowpaymentrequest/>
@@ -292,7 +292,7 @@ export default {
       div.id = 'fb-root'
       document.body.insertBefore(div, document.body.firstChild)
     }
-  },
+  }
 }
 </script>
 
@@ -352,7 +352,7 @@ export default {
       background-size: auto 100%;
       background-repeat: no-repeat;
 
-      &::before  {
+      &::before {
         content: '';
         position: absolute;
         left: 0;
@@ -377,7 +377,7 @@ export default {
 .tw-timeline-wrapper {
   width: 100%;
   height: 800px;
-  border: 1px solid rgba(15,70,100,.12);
+  border: 1px solid rgba(15, 70, 100, 0.12);
   margin-bottom: 20px;
 }
 
@@ -441,7 +441,7 @@ export default {
     .fb-page {
       display: none;
     }
-    
+
     .twitter-card {
       margin-left: 0;
       margin-top: 20px;
@@ -451,7 +451,7 @@ export default {
 
     .fb-card {
       width: 100%;
-    }    
+    }
   }
 }
 
@@ -465,9 +465,8 @@ export default {
     .twitter-card {
       margin-left: -15px;
       width: auto;
-    } 
+    }
   }
 }
-
-</style>  
+</style>
 
