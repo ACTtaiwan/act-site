@@ -7,14 +7,14 @@
       class="main-content">
       <nuxt nuxtChildKey="none" />
     </main>
-    <AppFooterACT :showPoweredby="false" :copyright="`Copyright © American Citizens for Taiwan 2018`"/>
+    <AppFooter :showPoweredby="false" :copyright="`Copyright © American Citizens for Taiwan 2018`"/>
   </div>
 </template>
 
 <script>
 import _ from 'lodash'
 import AppHeader from '~/components/AppHeader'
-import AppFooterACT from '~/components/AppFooterACT'
+import AppFooter from '~/components/AppFooterACT'
 import appConfig from '~/config/app.json'
 
 export default {
@@ -28,7 +28,7 @@ export default {
   },
   components: {
     AppHeader,
-    AppFooterACT
+    AppFooter
   },
   computed: {
     isPhone () {

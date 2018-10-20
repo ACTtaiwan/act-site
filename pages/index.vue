@@ -158,10 +158,9 @@ export default {
     Subscription,
     Donorbox,
     TwButton,
-    ActionCard,
-    Subscription
+    ActionCard
   },
-  data (context) {
+  data(context) {
     let urlQuery = context.$route.query
 
     return {
@@ -194,20 +193,20 @@ export default {
     }
   },
   computed: {
-    locale () {
+    locale() {
       return this.$store.state.locale
     },
-    isPhone () {
+    isPhone() {
       return this.$store.getters.isPhone
     },
-    isTablet () {
+    isTablet() {
       return this.$store.getters.isTablet
     },
-    bannerStyle () {
+    bannerStyle() {
       return `background-image: url("${this.congress}"); background-size: cover;`
     }
   },
-  head () {
+  head() {
     return {
       title: this.$t('site.title'),
       meta: [
@@ -218,7 +217,7 @@ export default {
       ]
     }
   },
-  mounted () {
+  mounted() {
     axios
       .post('https://ustw.auth0.com/oauth/token', {
         grant_type: 'client_credentials',
@@ -242,7 +241,7 @@ export default {
     // }
   },
   methods: {
-    getLatestActionDate (actions) {
+    getLatestActionDate(actions) {
       let latestActionTime = 0
       if (actions && actions.length > 0) {
         actions.forEach(action => {
@@ -253,13 +252,13 @@ export default {
       }
       return parseInt(latestActionTime)
     },
-    fetchBills (ids) {
+    fetchBills(ids) {
       return this.$apollo.query({
         query: BillsQuery,
         variables: { lang: this.locale, ids: ids }
       })
     },
-    getUpdatedBills () {
+    getUpdatedBills() {
       this.fetchBills(this.billIds)
         .then(({ data }) => {
           console.log('#####', data)
@@ -286,16 +285,16 @@ export default {
     billIds: {
       query: PrefetchBillIdsQuery,
       fetchPolicy: 'cache-and-network',
-      variables () {
+      variables() {
         return {
           lang: this.locale,
           congress: [115]
         }
       },
-      update (data) {
+      update(data) {
         return data.bills[0].prefetchIds
       },
-      result (result) {
+      result(result) {
         if (!result.loading) {
           this.getUpdatedBills()
         }
@@ -304,18 +303,18 @@ export default {
     articles: {
       query: ArticlesQuery,
       fetchPolicy: 'cache-and-network',
-      variables () {
+      variables() {
         return {
           list: appConfig.articleList
         }
       },
-      update (data) {
+      update(data) {
         return _.orderBy(data.articles, article => parseInt(article.date), ['desc']).slice(
           0,
           this.numberOfArticleCards
         )
       },
-      result (result) {
+      result(result) {
         if (!result.loading) {
           this.isArticleUpdateLoading = false
         }
@@ -511,7 +510,6 @@ export default {
   }
 }
 
-.donate-btn,
 .more-btn {
   margin: 20px auto;
   width: 200px;

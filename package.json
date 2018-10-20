@@ -38,7 +38,6 @@
     "iview": "^3.0.0",
     "moment": "^2.20.1",
     "nuxt": "^1.4.0",
-    "serverless": "^1.29.2",
     "topojson": "v1.6.27",
     "vue-async-computed": "^3.3.1",
     "vue-chartjs": "^3.2.1",
