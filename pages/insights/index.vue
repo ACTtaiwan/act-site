@@ -46,7 +46,6 @@ import BillCountCongressByCategoryCard from '~/components/Analytics/BillCountCon
 import MembersPrefetchQuery from '~/apollo/queries/MemberLandingPage/MembersPrefetch'
 import MembersQuery from '~/apollo/queries/MemberLandingPage/Members'
 import StateListQuery from '~/apollo/queries/StateList'
-import CategoriesQuery from '~/apollo/queries/BillLandingPage/Categories'
 
 export default {
   head () {
@@ -160,13 +159,6 @@ export default {
       },
       update (data) {
         return JSON.parse(data.maps[0].states)
-      }
-    },
-    categories: {
-      query: CategoriesQuery,
-      fetchPolicy: 'cache-and-network',
-      variables () {
-        return { lang: this.locale }
       }
     }
   }

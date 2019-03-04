@@ -288,7 +288,7 @@ export default {
       variables () {
         return {
           lang: this.locale,
-          congress: [115]
+          congress: [this.$store.state.currentCongress-1, this.$store.state.currentCongress]
         }
       },
       update (data) {

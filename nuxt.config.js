@@ -1,6 +1,6 @@
 const pkg = require('./package')
 const app = require('./config/app')
-require('dotenv').config()
+// require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -30,7 +30,7 @@ module.exports = {
   */
   env: {
     baseUrl: '/',
-    FRONTEND_API_KEY: process.env.FRONTEND_API_KEY
+    FRONTEND_API_KEY: ''
   },
 
   /*

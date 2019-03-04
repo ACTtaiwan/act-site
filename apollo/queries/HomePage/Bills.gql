@@ -6,7 +6,6 @@ query BillsQuery($lang: String, $ids: [ID]) {
     billCode
     billNumber
     billType {
-      id
       code
     }
     actionsAll {

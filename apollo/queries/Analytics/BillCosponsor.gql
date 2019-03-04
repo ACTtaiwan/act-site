@@ -1,10 +1,18 @@
 query BillsQuery($lang: String, $ids: [ID]) {
   bills(lang: $lang, ids: $ids) {
     id
+    introducedDate
+    congress
     cosponsors {
-      role {
+      dateCosponsored
+      member {
         id
-        state
+        congressRoles {
+          startDate
+          endDate
+          congressNumbers
+          state
+        }
       }
     }
   }

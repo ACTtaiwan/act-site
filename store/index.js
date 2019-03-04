@@ -11,7 +11,7 @@ export default () => {
       locale: 'en-us',
       clientWidth: null,
       earliestCongress: 96,
-      currentCongress: 115
+      currentCongress: 116
     },
     actions,
     mutations,

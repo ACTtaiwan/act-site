@@ -86,22 +86,17 @@ export default {
     isTablet () {
       return this.$store.getters.isTablet
     },
-    person () {
-      return this.members ? this.members[0].person : {}
-    },
     member () {
       return this.members ? this.members[0] : {}
     },
     memberTitle () {
       const lang = 'en'
 
-      if (!this.states || !this.members) return ''
-      if (this.members[0].district) {
-        return `${this.members[0].titleLong} for ${this.states[this.members[0].state][lang]}'s ${
-          this.members[0].district
-        }th congressional district`
+      if (!this.states || !this.member || !this.member.latestRole) return ''
+      if (this.member.latestRole.district) {
+        return `${this.member.latestRole.titleLong} for ${this.states[this.member.latestRole.state][lang]}'s ${this.member.latestRole.district}th congressional district`
       } else {
-        return `${this.members[0].titleLong} for ${this.states[this.members[0].state][lang]}`
+        return `${this.member.latestRole.titleLong} for ${this.states[this.member.latestRole.state][lang]}`
       }
     }
   },
@@ -125,9 +120,17 @@ export default {
         bill => Number(bill.introducedDate),
         ['desc']
       )
+
+      const m = _.keyBy(this.member.cosponsorProperty, 'billId')
+      this.cosponsoredBills = _.map(cosponsoredBills.data.bills, bill => {
+        return {
+          ...bill, 
+          dateCosponsored: m[bill.id].dateCosponsored
+        }
+      })
       this.cosponsoredBills = _.orderBy(
-        cosponsoredBills.data.bills,
-        bill => Number(bill.introducedDate),
+        this.cosponsoredBills,
+        bill => Number(bill.dateCosponsored),
         ['desc']
       )
     },
@@ -151,12 +154,12 @@ export default {
       // Add prefetch for SSR
       // https://github.com/Akryum/vue-apollo#server-side-rendering
       prefetch: ({ route, app }) => ({
-        personIds: [route.params.id],
+        ids: [route.params.id],
         lang: app.store.state.locale
       }),
       variables () {
         return {
-          personIds: [this.$route.params.id],
+          ids: [this.$route.params.id],
           lang: this.locale
         }
       },
@@ -166,7 +169,7 @@ export default {
       result (result) {
         if (!result.loading) {
           this.fetchSupportBills(result.data.members)
-          this.fetchProPublicaMember(result.data.members[0].person.bioGuideId)
+          this.fetchProPublicaMember(result.data.members[0].bioGuideId)
         }
       }
     },
@@ -187,7 +190,7 @@ export default {
   },
   head () {
     return {
-      title: this.person ? `${this.person.firstname} ${this.person.lastname}` : 'Loading',
+      title: this.member ? `${this.member.firstName} ${this.member.lastName}` : 'Loading',
       meta: [
         {
           hid: 'description',
@@ -196,7 +199,7 @@ export default {
         },
         {
           name: 'og:title',
-          content: this.person ? `${this.person.firstname} ${this.person.lastname}` : 'Loading'
+          content: this.member ? `${this.member.firstName} ${this.member.lastName}` : 'Loading'
         },
         { name: 'twitter:label1', content: 'Sponsored bills' },
         { name: 'twitter:data1', content: this.sponsoredBills ? this.sponsoredBills.length : 0 },

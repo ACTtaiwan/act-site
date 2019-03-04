@@ -17,7 +17,7 @@
         <Row>
           <!-- Filters -->
           <i-col :xs="{ span: 24 }" :sm="{ span: 6 }" class="filters">
-            <BillsFilters :categories="categories" :loading="filterLoading" @on-filter="filterBills" />
+            <BillsFilters :loading="filterLoading" @on-filter="filterBills" />
           </i-col>
           <!-- List -->
           <i-col :xs="{ span: 24 }" :sm="{ span: 18 }" class="list">
@@ -62,7 +62,6 @@ import BillsFilters from '~/components/BillsFilters'
 // Queries
 import PrefetchBillIdsQuery from '~/apollo/queries/BillLandingPage/PrefetchBillIds'
 import BillsQuery from '~/apollo/queries/BillLandingPage/Bills'
-import CategoriesQuery from '~/apollo/queries/BillLandingPage/Categories'
 
 export default {
   head () {
@@ -87,7 +86,6 @@ export default {
   },
   data () {
     return {
-      categories: [],
       bills: [],
       billIds: [],
       page: 0,
@@ -104,9 +102,6 @@ export default {
       // when locale changes, reset the current page
       this.resetPage()
       return this.$store.state.locale
-    },
-    selectedCategories () {
-      return this.filterData.selectedCategories ? this.filterData.selectedCategories : []
     },
     selectedCongress () {
       let congress = []
@@ -134,8 +129,7 @@ export default {
         query: PrefetchBillIdsQuery,
         variables: {
           lang: this.locale,
-          congress: this.selectedCongress,
-          categories: this.selectedCategories
+          congress: this.selectedCongress
         }
       })
     },
@@ -189,13 +183,6 @@ export default {
     }
   },
   apollo: {
-    categories: {
-      query: CategoriesQuery,
-      fetchPolicy: 'cache-and-network',
-      variables () {
-        return { lang: this.locale }
-      }
-    }
   }
 }
 </script>
