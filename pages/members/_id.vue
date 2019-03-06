@@ -116,21 +116,21 @@ export default {
       const cosponsoredBills = await this.fetchBills(cosponsored)
 
       this.sponsoredBills = _.orderBy(
-        sponsoredBills.data.bills,
+        sponsoredBills,
         bill => Number(bill.introducedDate),
         ['desc']
       )
 
       const m = _.keyBy(this.member.cosponsorProperty, 'billId')
-      this.cosponsoredBills = _.map(cosponsoredBills.data.bills, bill => {
+      this.cosponsoredBills = _.map(cosponsoredBills, bill => {
         return {
           ...bill, 
-          dateCosponsored: m[bill.id].dateCosponsored
+          dateCosponsored: (m[bill.id] && m[bill.id].dateCosponsored) || undefined
         }
       })
       this.cosponsoredBills = _.orderBy(
         this.cosponsoredBills,
-        bill => Number(bill.dateCosponsored),
+        bill => (bill.dateCosponsored && Number(bill.dateCosponsored)) || bill.introducedDate,
         ['desc']
       )
     },
@@ -140,11 +140,16 @@ export default {
       )
       this.ppMember = response.data.results[0]
     },
-    fetchBills (ids) {
-      return this.$apollo.query({
+    async fetchBills (ids) {
+      let chunckedIds = _.chunk(ids, 10)
+      let promises = chunckedIds.map(idsSubset => this.$apollo.query({
         query: BillsQuery,
-        variables: { lang: this.locale, ids: ids }
-      })
+        variables: { lang: this.locale, ids: idsSubset }
+      }))
+      let apiResult = await Promise.all(promises)
+      apiResult = _.map(apiResult, r => r.data.bills)
+      let billsFetched = _.flatten(apiResult)
+      return billsFetched
     }
   },
   apollo: {
