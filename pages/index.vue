@@ -119,8 +119,8 @@
     <!-- Subscription -->
     <Subscription :show="showSubscription" @close="showSubscription = false"/>
 
-    <!-- Donorbox -->
-    <Donorbox :show="showDonorbox" @close="showDonorbox = false"/>
+    <!-- Donation Popup -->
+    <DonationPopup :show="showDonorbox" @close="showDonorbox = false"/>
 
   </div>
 </template>
@@ -140,7 +140,7 @@ import Spinner from '~/components/Spinner'
 import BillCard from '~/components/HomePage/BillCard'
 import ArticleCard from '~/components/HomePage/ArticleCard'
 import Subscription from '~/components/Subscription'
-import Donorbox from '~/components/Donorbox'
+import DonationPopup from '~/components/DonationPopup'
 import TwButton from '~/components/TwButton'
 import ActionCard from '~/components/ActionCard'
 // queriess
@@ -156,7 +156,7 @@ export default {
     ArticleCard,
     Spinner,
     Subscription,
-    Donorbox,
+    DonationPopup,
     TwButton,
     ActionCard
   },
@@ -231,14 +231,6 @@ export default {
       .catch(err => {
         console.err(JSON.stringify(err, null, 2))
       })
-    // if (!window.DonorBox) {
-    //   window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }
-    //   var script = document.createElement('script')
-    //   script.type = 'text/javascript'
-    //   script.src = 'https://donorbox.org/install-popup-button.js'
-    //   script.defer = true
-    //   window.document.head.appendChild(script)
-    // }
   },
   methods: {
     getLatestActionDate (actions) {

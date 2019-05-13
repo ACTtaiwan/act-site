@@ -193,7 +193,7 @@
       <div class="section-wrapper">
         <h1 class="section-title">Support us</h1>
         <Card :bordered="false" class="section-card">
-          <DonorboxContent />
+          <Donation />
         </Card>
       </div>
     </section>
@@ -232,7 +232,7 @@ import bannerBills from '~/assets/img/banner-bills.png'
 import ship from '~/assets/img/ship.png'
 
 // components
-import DonorboxContent from '~/components/DonorboxContent'
+import Donation from '~/components/Donation'
 
 export default {
   head () {
@@ -241,7 +241,7 @@ export default {
     }
   },
   components: {
-    DonorboxContent
+    Donation
   },
   data () {
     return {
